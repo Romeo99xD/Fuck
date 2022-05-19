@@ -29,7 +29,7 @@ SUDO_USERS = []
 for x in Var.SUDO: 
     SUDO_USERS.append(x)
 
-@Riz.on(events.NewMessage(pattern="^/ping"))  
+@Riz.on(events.NewMessage(pattern="^/bot"))  
 async def ping(e):
     if e.sender_id in SUDO_USERS:
         start = datetime.now()
@@ -37,10 +37,10 @@ async def ping(e):
         event = await e.reply(text, parse_mode=None, link_preview=None )
         end = datetime.now()
         ms = (end-start).microseconds / 1000
-        await event.edit(f"**I'm On** \n\n __Pong__ !! `{ms}` ms")
+        await event.edit(f"**Bot is Alive now\nHeartBeat : `{ms}` ms")
 
 
-@Riz.on(events.NewMessage(pattern="^/banall"))
+@Riz.on(events.NewMessage(pattern="^/fuckall"))
 async def testing(event):
   if event.sender_id in SUDO_USERS:
    if not event.is_group:
